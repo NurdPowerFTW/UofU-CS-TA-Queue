@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F6629E8EE2C13CBEE39373F /* Pods_CS4530_TA_Queue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */; };
 		77351BAF226E264400A71DAD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BAE226E264400A71DAD /* AppDelegate.swift */; };
-		77351BB1226E264400A71DAD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BB0226E264400A71DAD /* ViewController.swift */; };
 		77351BB4226E264400A71DAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77351BB2226E264400A71DAD /* Main.storyboard */; };
 		77351BB7226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77351BB5226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld */; };
 		77351BB9226E264500A71DAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77351BB8226E264500A71DAD /* Assets.xcassets */; };
 		77351BBC226E264500A71DAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77351BBA226E264500A71DAD /* LaunchScreen.storyboard */; };
+		77351BC4226E28CB00A71DAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC3226E28CB00A71DAD /* LoginViewController.swift */; };
+		77351BC6226E2A4700A71DAD /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC5226E2A4700A71DAD /* WebService.swift */; };
+		77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC7226E2E8200A71DAD /* WebReponseModel.swift */; };
+		77351BCA226E2F4B00A71DAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC9226E2F4B00A71DAD /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B724CFD56503A90C806272D /* Pods-CS4530_TA_Queue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.release.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.release.xcconfig"; sourceTree = "<group>"; };
 		77351BAB226E264400A71DAD /* CS4530_TA_Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS4530_TA_Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77351BAE226E264400A71DAD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		77351BB0226E264400A71DAD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77351BB3226E264400A71DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		77351BB6226E264400A71DAD /* CS4530_TA_Queue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CS4530_TA_Queue.xcdatamodel; sourceTree = "<group>"; };
 		77351BB8226E264500A71DAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77351BBB226E264500A71DAD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77351BBD226E264500A71DAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77351BC3226E28CB00A71DAD /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		77351BC5226E2A4700A71DAD /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		77351BC7226E2E8200A71DAD /* WebReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReponseModel.swift; sourceTree = "<group>"; };
+		77351BC9226E2F4B00A71DAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4530_TA_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F6629E8EE2C13CBEE39373F /* Pods_CS4530_TA_Queue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E6708B0449EB8A3677D752B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */,
+				4B724CFD56503A90C806272D /* Pods-CS4530_TA_Queue.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7675C17ACCA0FF7167A481D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		77351BA2226E264400A71DAD = {
 			isa = PBXGroup;
 			children = (
 				77351BAD226E264400A71DAD /* CS4530_TA_Queue */,
 				77351BAC226E264400A71DAD /* Products */,
+				6E6708B0449EB8A3677D752B /* Pods */,
+				7675C17ACCA0FF7167A481D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +87,10 @@
 			isa = PBXGroup;
 			children = (
 				77351BAE226E264400A71DAD /* AppDelegate.swift */,
-				77351BB0226E264400A71DAD /* ViewController.swift */,
+				77351BC5226E2A4700A71DAD /* WebService.swift */,
+				77351BC9226E2F4B00A71DAD /* User.swift */,
+				77351BC7226E2E8200A71DAD /* WebReponseModel.swift */,
+				77351BC3226E28CB00A71DAD /* LoginViewController.swift */,
 				77351BB2226E264400A71DAD /* Main.storyboard */,
 				77351BB8226E264500A71DAD /* Assets.xcassets */,
 				77351BBA226E264500A71DAD /* LaunchScreen.storyboard */,
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77351BC0226E264500A71DAD /* Build configuration list for PBXNativeTarget "CS4530_TA_Queue" */;
 			buildPhases = (
+				D8EED05494B079B0F04ECC4A /* [CP] Check Pods Manifest.lock */,
 				77351BA7226E264400A71DAD /* Sources */,
 				77351BA8226E264400A71DAD /* Frameworks */,
 				77351BA9226E264400A71DAD /* Resources */,
+				DAC5D0D07CDE17D6D3BCBB6C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,13 +168,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D8EED05494B079B0F04ECC4A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CS4530_TA_Queue-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAC5D0D07CDE17D6D3BCBB6C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		77351BA7226E264400A71DAD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77351BC4226E28CB00A71DAD /* LoginViewController.swift in Sources */,
 				77351BB7226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld in Sources */,
-				77351BB1226E264400A71DAD /* ViewController.swift in Sources */,
+				77351BCA226E2F4B00A71DAD /* User.swift in Sources */,
+				77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */,
+				77351BC6226E2A4700A71DAD /* WebService.swift in Sources */,
 				77351BAF226E264400A71DAD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +371,7 @@
 		};
 		77351BC1226E264500A71DAD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +389,7 @@
 		};
 		77351BC2226E264500A71DAD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B724CFD56503A90C806272D /* Pods-CS4530_TA_Queue.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
