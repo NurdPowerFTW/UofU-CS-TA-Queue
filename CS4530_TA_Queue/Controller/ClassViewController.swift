@@ -8,46 +8,47 @@
 
 import UIKit
 
-class ClassViewController: UIViewController {
-
-    var fetchService = WebService()
+class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    let manager = Manager.shared()
+    let fetchService = WebService()
+    var myCourseCellID = "myCourse"
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "My Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         let manager = Manager.shared()
         let currentUser = manager.users![UserDefaults.standard.string(forKey: "CurrentUser")!]
         let url = WebService.shared.FECTH_USER_INO_API_ADDRESS + currentUser!.uName + "/courses"
         fetchService.sendCollectUserInfoRequest(url: url, type: "GET") { (result, done) in
             if done {
-                
+                print(result)
             }
             else
             {
-                
+                print(result)
             }
+            self.tableView.reloadData()
         }
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: myCourseCellID)
+        
     }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        return nil
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: myCourseCellID, for: indexPath)
+        let course = Array(manager.courses!)[indexPath.row].value
+        cell.textLabel?.text = course.courseName
+        return cell
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return manager.courses!.count
+    }
+    
+    
 }

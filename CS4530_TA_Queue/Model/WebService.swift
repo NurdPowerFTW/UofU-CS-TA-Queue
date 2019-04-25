@@ -66,7 +66,7 @@ class WebService{
                 else
                 {
                     DispatchQueue.main.async {
-//                        WebResponseModel.shared.setupLoggedInUser(param: data)
+                        WebResponseModel.shared.setupCourse(param: data)
                         handler("Displaying Courses.", true)
                     }
                 }

@@ -10,11 +10,15 @@ import Foundation
 
 class Course
 {
-    var courseID: Int?
+    var category: String?
+    var courseName: String?
+    var courseID: String?
     var description: String?
     
-    init(id: Int, description: String) {
-        courseID = id
+    init(category: String, name: String, id: String, description: String) {
+        self.courseID = id
         self.description = description
+        self.courseName = name
+        self.category = category
     }
 }

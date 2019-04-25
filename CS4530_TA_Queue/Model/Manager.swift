@@ -16,10 +16,12 @@ class Manager{
     }()
     
     var users: [String : User]?
+    var courses: [String: Course]?
     
     init()
     {
         self.users = [String : User]()
+        self.courses = [String: Course]()
     }
     
     class func shared() -> Manager {
@@ -29,5 +31,10 @@ class Manager{
     func addUser(user: User)
     {
         self.users?[user.uName] = user
+    }
+    
+    func addCourse(course: Course)
+    {
+        self.courses?[course.courseID!] = course
     }
 }
