@@ -9,16 +9,17 @@
 import Foundation
 
 class User{
-    enum UserType {
-        case Student
-        case TA
-        case Administrator
-    }
+    
     var uName: String = ""
     var fName: String = ""
     var lName: String = ""
     var authenticated: Bool = false
     var isAdmin: Bool = false
+    var isTA: Bool = false
+    var isMain: Bool = false
+    
+    var TACourses = [Course]()
+    var StuCourses = [Course]()
     
     init(uName: String, fName: String, lName: String, authenticated: Bool, isAdmin: Bool)
     {
@@ -26,7 +27,17 @@ class User{
         self.fName = fName
         self.authenticated = authenticated
         self.isAdmin = isAdmin
+        
     }
     
+    func addATACourse(course: Course)
+    {
+        TACourses.append(course)
+    }
+    
+    func addAStuCours(course: Course)
+    {
+        StuCourses.append(course)
+    }
     
 }

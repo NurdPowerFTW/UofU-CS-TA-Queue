@@ -17,6 +17,9 @@
 		77351BC6226E2A4700A71DAD /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC5226E2A4700A71DAD /* WebService.swift */; };
 		77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC7226E2E8200A71DAD /* WebReponseModel.swift */; };
 		77351BCA226E2F4B00A71DAD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77351BC9226E2F4B00A71DAD /* User.swift */; };
+		7744590D2270DDD900192FAD /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744590C2270DDD900192FAD /* Manager.swift */; };
+		7744590F22721B1300192FAD /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744590E22721B1300192FAD /* ClassViewController.swift */; };
+		774459142272269600192FAD /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774459132272269600192FAD /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		77351BC5226E2A4700A71DAD /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		77351BC7226E2E8200A71DAD /* WebReponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebReponseModel.swift; sourceTree = "<group>"; };
 		77351BC9226E2F4B00A71DAD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7744590C2270DDD900192FAD /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		7744590E22721B1300192FAD /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
+		774459132272269600192FAD /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4530_TA_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,11 +92,10 @@
 		77351BAD226E264400A71DAD /* CS4530_TA_Queue */ = {
 			isa = PBXGroup;
 			children = (
+				7744591222721C9200192FAD /* Controller */,
+				7744591122721C7800192FAD /* View */,
+				7744591022721C4600192FAD /* Model */,
 				77351BAE226E264400A71DAD /* AppDelegate.swift */,
-				77351BC5226E2A4700A71DAD /* WebService.swift */,
-				77351BC9226E2F4B00A71DAD /* User.swift */,
-				77351BC7226E2E8200A71DAD /* WebReponseModel.swift */,
-				77351BC3226E28CB00A71DAD /* LoginViewController.swift */,
 				77351BB2226E264400A71DAD /* Main.storyboard */,
 				77351BB8226E264500A71DAD /* Assets.xcassets */,
 				77351BBA226E264500A71DAD /* LaunchScreen.storyboard */,
@@ -98,6 +103,34 @@
 				77351BB5226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld */,
 			);
 			path = CS4530_TA_Queue;
+			sourceTree = "<group>";
+		};
+		7744591022721C4600192FAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				77351BC7226E2E8200A71DAD /* WebReponseModel.swift */,
+				77351BC5226E2A4700A71DAD /* WebService.swift */,
+				7744590C2270DDD900192FAD /* Manager.swift */,
+				77351BC9226E2F4B00A71DAD /* User.swift */,
+				774459132272269600192FAD /* Course.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7744591122721C7800192FAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7744591222721C9200192FAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				77351BC3226E28CB00A71DAD /* LoginViewController.swift */,
+				7744590E22721B1300192FAD /* ClassViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,10 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				774459142272269600192FAD /* Course.swift in Sources */,
 				77351BC4226E28CB00A71DAD /* LoginViewController.swift in Sources */,
+				7744590F22721B1300192FAD /* ClassViewController.swift in Sources */,
 				77351BB7226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld in Sources */,
 				77351BCA226E2F4B00A71DAD /* User.swift in Sources */,
 				77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */,
+				7744590D2270DDD900192FAD /* Manager.swift in Sources */,
 				77351BC6226E2A4700A71DAD /* WebService.swift in Sources */,
 				77351BAF226E264400A71DAD /* AppDelegate.swift in Sources */,
 			);

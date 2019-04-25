@@ -15,21 +15,25 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Login Page"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     @IBAction func login(_ sender: Any) {
         if uNameField.text?.count != 0 && passField.text?.count != 0
         {
             loginService.sendLoginRequest(username: uNameField.text!, password: passField.text!, url: loginService.LOGIN_API_ADDRESS, type: "POST") { (result, done) in
-//                if done
-//                {
-                    print(result)
-//                }
-//                else
-//                {
-                
-//                }
+                if done
+                {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let classVC = storyboard.instantiateViewController(withIdentifier: "ClassVC")
+                    self.navigationController?.pushViewController(classVC, animated: true)
+                    
+                }
+                else
+                {
+                    self.createAlert(title: "Login Error", message: result)
+                }
                 
             }
         }
