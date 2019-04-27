@@ -19,7 +19,7 @@ class WebResponseModel{
         manager.addUser(user: user)
     }
     
-    func setupCourse(param: Data)
+    func setupUserCourse(param: Data)
     {
         let json = JSON(param)
         let taCouses = json["ta_courses"]
@@ -29,7 +29,7 @@ class WebResponseModel{
             for (key, value): (String, JSON) in taCouses
             {
                 let course = Course(category: "TA", name: key, id: value["course_id"].stringValue, description: value["description"].stringValue)
-                manager.addCourse(course: course)
+                manager.addUserCourse(course: course)
             }
         }
         
@@ -38,11 +38,18 @@ class WebResponseModel{
             for (key, value): (String, JSON) in stuCourses
             {
                 let course = Course(category: "Student", name: key, id: value["course_id"].stringValue, description: value["description"].stringValue)
-                manager.addCourse(course: course)
+                manager.addUserCourse(course: course)
             }
         }
-        
-        
-        
+    }
+    
+    func setupAllCourse(param: Data)
+    {
+        let json = JSON(param)
+        for (key, value): (String, JSON) in json["all_courses"]
+        {
+            manager.addAllCourse(course: Course(category: "Available", name: key, id: value["course_id"].stringValue, description: value["description"].stringValue))
+
+        }
     }
 }

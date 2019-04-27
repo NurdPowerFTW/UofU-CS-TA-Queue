@@ -18,10 +18,22 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         navigationItem.title = "My Courses"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let manager = Manager.shared()
         let currentUser = manager.users![UserDefaults.standard.string(forKey: "CurrentUser")!]
         let url = WebService.shared.FECTH_USER_INO_API_ADDRESS + currentUser!.uName + "/courses"
-        fetchService.sendCollectUserInfoRequest(url: url, type: "GET") { (result, done) in
+        fetchService.sendFetchUserCoursesRequest(url: url, type: "GET") { (result, done) in
+            if done {
+                print(result)
+            }
+            else
+            {
+                print(result)
+            }
+            self.tableView.reloadData()
+        }
+        
+        fetchService.sendFetchAllCoursesRequest(url: WebService.shared.FECTH_AVAILABLE_COURSES_API_ADDRESS, type: "GET") { (result, done) in
             if done {
                 print(result)
             }
@@ -41,14 +53,39 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: myCourseCellID, for: indexPath)
-        let course = Array(manager.courses!)[indexPath.row].value
+        let course = indexPath.section == 0 ? Array(manager.userCourses!)[indexPath.row].value : Array(manager.allCOurses!)[indexPath.row].value
         cell.textLabel?.text = course.courseName
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return manager.courses!.count
+        if section == 0
+        {
+            return manager.userCourses!.count
+        }
+        return manager.allCOurses!.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        switch section {
+        case 0:
+            label.text = "My Courses"
+            break
+        case 1:
+            label.text = "All Available Courses"
+        default:
+            break
+        }
+        label.backgroundColor = UIColor.red
+        return label
     }
     
     
 }
+

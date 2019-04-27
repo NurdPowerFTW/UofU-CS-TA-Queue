@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS4530_TA_Queue/Model/WebReponseModel.swift"
-            timestampString = "577915234.1959651"
+            timestampString = "578088971.029803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "22"
             endingLineNumber = "22"
-            landmarkName = "setupCourse(param:)"
+            landmarkName = "setupUserCourse(param:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

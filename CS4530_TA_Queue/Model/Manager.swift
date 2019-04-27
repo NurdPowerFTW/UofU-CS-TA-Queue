@@ -16,12 +16,14 @@ class Manager{
     }()
     
     var users: [String : User]?
-    var courses: [String: Course]?
+    var userCourses: [String: Course]?
+    var allCOurses: [String: Course]?
     
     init()
     {
         self.users = [String : User]()
-        self.courses = [String: Course]()
+        self.userCourses = [String: Course]()
+        self.allCOurses = [String: Course]()
     }
     
     class func shared() -> Manager {
@@ -33,8 +35,13 @@ class Manager{
         self.users?[user.uName] = user
     }
     
-    func addCourse(course: Course)
+    func addUserCourse(course: Course)
     {
-        self.courses?[course.courseID!] = course
+        self.userCourses?[course.courseID!] = course
+    }
+    
+    func addAllCourse(course: Course)
+    {
+        self.allCOurses?[course.courseID!] = course
     }
 }

@@ -94,7 +94,7 @@
                                 </constraints>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AbA-gn-CEg" firstAttribute="bottom" secondItem="vUx-Sw-wK1" secondAttribute="bottom" id="FHV-63-39R"/>
                             <constraint firstItem="AbA-gn-CEg" firstAttribute="leading" secondItem="vUx-Sw-wK1" secondAttribute="leading" constant="20" id="KC1-wg-7Zu"/>
