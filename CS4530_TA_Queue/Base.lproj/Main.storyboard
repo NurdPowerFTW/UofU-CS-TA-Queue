@@ -69,6 +69,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Pid-o5-RtB"/>
                     <connections>
                         <outlet property="passField" destination="THL-lG-7AE" id="S8a-r8-r2W"/>
                         <outlet property="uNameField" destination="9ha-af-Y3u" id="ARQ-XQ-ET6"/>
@@ -76,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
         <!--Class View Controller-->
         <scene sceneID="T68-sN-0tf">
@@ -86,20 +87,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AbA-gn-CEg">
-                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AbA-gn-CEg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="AbA-gn-CEg" secondAttribute="height" multiplier="187:409" id="fE9-er-w1T"/>
-                                </constraints>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AbA-gn-CEg" firstAttribute="bottom" secondItem="vUx-Sw-wK1" secondAttribute="bottom" id="FHV-63-39R"/>
-                            <constraint firstItem="AbA-gn-CEg" firstAttribute="leading" secondItem="vUx-Sw-wK1" secondAttribute="leading" constant="20" id="KC1-wg-7Zu"/>
-                            <constraint firstItem="AbA-gn-CEg" firstAttribute="top" secondItem="vUx-Sw-wK1" secondAttribute="top" id="VGS-9l-wQU"/>
-                            <constraint firstItem="vUx-Sw-wK1" firstAttribute="trailing" secondItem="AbA-gn-CEg" secondAttribute="trailing" constant="20" id="zGC-VG-T4k"/>
+                            <constraint firstItem="AbA-gn-CEg" firstAttribute="top" secondItem="zdJ-wM-gys" secondAttribute="top" id="7xE-D6-AhH"/>
+                            <constraint firstItem="AbA-gn-CEg" firstAttribute="trailing" secondItem="vUx-Sw-wK1" secondAttribute="trailing" id="HPc-mb-fHV"/>
+                            <constraint firstItem="AbA-gn-CEg" firstAttribute="leading" secondItem="vUx-Sw-wK1" secondAttribute="leading" id="b0g-Xc-uMS"/>
+                            <constraint firstItem="AbA-gn-CEg" firstAttribute="bottom" secondItem="vUx-Sw-wK1" secondAttribute="bottom" id="oO8-pz-R09"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vUx-Sw-wK1"/>
                     </view>
@@ -109,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDm-AW-3M1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="137.94642857142856"/>
+            <point key="canvasLocation" x="1802.8985507246377" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

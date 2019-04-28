@@ -6,16 +6,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CS4530_TA_Queue/View/CourseCell.swift"
+            timestampString = "578129750.8384711"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "selectCourse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CS4530_TA_Queue/Model/WebReponseModel.swift"
-            timestampString = "578088971.029803"
+            filePath = "CS4530_TA_Queue/Controller/ClassViewController.swift"
+            timestampString = "578129750.838721"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "setupUserCourse(param:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "moveToQueue(course:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

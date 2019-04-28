@@ -20,6 +20,8 @@
 		7744590D2270DDD900192FAD /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744590C2270DDD900192FAD /* Manager.swift */; };
 		7744590F22721B1300192FAD /* ClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7744590E22721B1300192FAD /* ClassViewController.swift */; };
 		774459142272269600192FAD /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774459132272269600192FAD /* Course.swift */; };
+		777712762274FCAA00CC09D2 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777712752274FCAA00CC09D2 /* CourseCell.swift */; };
+		777712782274FF5800CC09D2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777712772274FF5800CC09D2 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		7744590C2270DDD900192FAD /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		7744590E22721B1300192FAD /* ClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassViewController.swift; sourceTree = "<group>"; };
 		774459132272269600192FAD /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		777712752274FCAA00CC09D2 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		777712772274FF5800CC09D2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4530_TA_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +124,8 @@
 		7744591122721C7800192FAD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				777712752274FCAA00CC09D2 /* CourseCell.swift */,
+				777712772274FF5800CC09D2 /* Extension.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +265,8 @@
 				77351BC4226E28CB00A71DAD /* LoginViewController.swift in Sources */,
 				7744590F22721B1300192FAD /* ClassViewController.swift in Sources */,
 				77351BB7226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld in Sources */,
+				777712782274FF5800CC09D2 /* Extension.swift in Sources */,
+				777712762274FCAA00CC09D2 /* CourseCell.swift in Sources */,
 				77351BCA226E2F4B00A71DAD /* User.swift in Sources */,
 				77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */,
 				7744590D2270DDD900192FAD /* Manager.swift in Sources */,

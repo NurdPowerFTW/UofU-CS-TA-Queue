@@ -12,8 +12,10 @@ import SwiftyJSON
 class WebService{
     static let shared = WebService()
     let LOGIN_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/login"
+    let LOGOUT_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/logout"
     let FECTH_USER_INO_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/user/"
     let FECTH_AVAILABLE_COURSES_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/courses"
+    let GET_QUEUE_FOR_CLASS_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/queue/"
     
     func sendLoginRequest(username: String, password: String, url: String, type: String, handler:@escaping (String, Bool)->Void)
     {
@@ -41,6 +43,33 @@ class WebService{
                         defaults.set(username, forKey: "CurrentUser")
                         WebResponseModel.shared.setupLoggedInUser(param: data)
                         handler("You have logged in.", true)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func sendLogoutRequest(url: String, type: String, handler:@escaping (String, Bool)->Void)
+    {
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = type
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        DispatchQueue.global(qos: .userInteractive).async {
+            // Send Fetch request
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                guard let data = data, let response = response as? HTTPURLResponse else{return}
+                //                print(JSON(data))
+                if response.statusCode != 200
+                {
+                    DispatchQueue.main.async {
+                        handler("Not authenticated.",false)
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        WebResponseModel.shared.setupUserCourse(param: data)
+                        handler("User logged out.", true)
                     }
                 }
             }).resume()
@@ -83,7 +112,7 @@ class WebService{
             // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
-                //                print(JSON(data))
+                                print(JSON(data))
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
@@ -100,5 +129,32 @@ class WebService{
             }).resume()
         }
 
+    }
+    
+    func sednGetQueueRequest(url: String, type: String, handler:@escaping (String, Bool)->Void)
+    {
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = type
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        DispatchQueue.global(qos: .userInteractive).async {
+            // Send Fetch request
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                guard let data = data, let response = response as? HTTPURLResponse else{return}
+                print(JSON(data))
+                if response.statusCode != 200
+                {
+                    DispatchQueue.main.async {
+                        handler("Error:\(response.statusCode)",false)
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        WebResponseModel.shared.setupAllCourse(param: data)
+                        handler("Displaying queue.", true)
+                    }
+                }
+            }).resume()
+        }
     }
 }

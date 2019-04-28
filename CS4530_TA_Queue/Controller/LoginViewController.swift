@@ -15,8 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Login Page"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         
 //        let currentUser = UserDefaults.standard.string(forKey: "CurrentUser")
 //        if currentUser != nil
@@ -27,6 +26,10 @@ class LoginViewController: UIViewController {
 //        }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationItem.title = "Login Page"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
     @IBAction func login(_ sender: Any) {
 //        if uNameField.text?.count != 0 && passField.text?.count != 0
 //        {
