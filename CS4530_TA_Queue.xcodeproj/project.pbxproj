@@ -22,6 +22,9 @@
 		774459142272269600192FAD /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774459132272269600192FAD /* Course.swift */; };
 		777712762274FCAA00CC09D2 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777712752274FCAA00CC09D2 /* CourseCell.swift */; };
 		777712782274FF5800CC09D2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777712772274FF5800CC09D2 /* Extension.swift */; };
+		777F29E22276274900CD1850 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29E12276274900CD1850 /* QueueViewController.swift */; };
+		777F29E4227629AC00CD1850 /* QueueHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29E3227629AC00CD1850 /* QueueHeader.swift */; };
+		777F29E622762B3100CD1850 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29E522762B3100CD1850 /* Queue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		774459132272269600192FAD /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		777712752274FCAA00CC09D2 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 		777712772274FF5800CC09D2 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		777F29E12276274900CD1850 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
+		777F29E3227629AC00CD1850 /* QueueHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueHeader.swift; sourceTree = "<group>"; };
+		777F29E522762B3100CD1850 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4530_TA_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +123,7 @@
 				7744590C2270DDD900192FAD /* Manager.swift */,
 				77351BC9226E2F4B00A71DAD /* User.swift */,
 				774459132272269600192FAD /* Course.swift */,
+				777F29E522762B3100CD1850 /* Queue.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +133,7 @@
 			children = (
 				777712752274FCAA00CC09D2 /* CourseCell.swift */,
 				777712772274FF5800CC09D2 /* Extension.swift */,
+				777F29E3227629AC00CD1850 /* QueueHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +143,7 @@
 			children = (
 				77351BC3226E28CB00A71DAD /* LoginViewController.swift */,
 				7744590E22721B1300192FAD /* ClassViewController.swift */,
+				777F29E12276274900CD1850 /* QueueViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				774459142272269600192FAD /* Course.swift in Sources */,
+				777F29E622762B3100CD1850 /* Queue.swift in Sources */,
 				77351BC4226E28CB00A71DAD /* LoginViewController.swift in Sources */,
 				7744590F22721B1300192FAD /* ClassViewController.swift in Sources */,
 				77351BB7226E264400A71DAD /* CS4530_TA_Queue.xcdatamodeld in Sources */,
@@ -269,7 +279,9 @@
 				777712762274FCAA00CC09D2 /* CourseCell.swift in Sources */,
 				77351BCA226E2F4B00A71DAD /* User.swift in Sources */,
 				77351BC8226E2E8200A71DAD /* WebReponseModel.swift in Sources */,
+				777F29E22276274900CD1850 /* QueueViewController.swift in Sources */,
 				7744590D2270DDD900192FAD /* Manager.swift in Sources */,
+				777F29E4227629AC00CD1850 /* QueueHeader.swift in Sources */,
 				77351BC6226E2A4700A71DAD /* WebService.swift in Sources */,
 				77351BAF226E264400A71DAD /* AppDelegate.swift in Sources */,
 			);

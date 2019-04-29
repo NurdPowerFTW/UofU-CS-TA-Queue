@@ -27,8 +27,9 @@ class LoginViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.title = "Login Page"
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.title = "Login Page"
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     @IBAction func login(_ sender: Any) {
 //        if uNameField.text?.count != 0 && passField.text?.count != 0

@@ -51,7 +51,7 @@ class CourseCell : UITableViewCell {
         return lbl
     }()
     
-    private let selectButton: UIButton = {
+    var selectButton: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("GO/Enroll", for: .normal)
         return btn

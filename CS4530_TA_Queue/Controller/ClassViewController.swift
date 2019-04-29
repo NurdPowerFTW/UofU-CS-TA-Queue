@@ -46,16 +46,17 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none
+        tableView.separatorStyle = .singleLine
         tableView.register(CourseCell.self, forCellReuseIdentifier: myCourseCellID)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
         let backItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logout))
         navigationItem.leftBarButtonItem = backItem
         navigationItem.title = "My Courses"
-        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 256, blue: 198, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor.lightGray
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     @objc func logout()
@@ -78,6 +79,14 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let course = indexPath.section == 0 ? Array(manager.userCourses!)[indexPath.row].value : Array(manager.allCOurses!)[indexPath.row].value
         cell.delegate = self
         cell.course = course
+        if course.category == "Available"
+        {
+            cell.selectButton.setTitle("Enroll", for: .normal)
+        }
+        else
+        {
+            cell.selectButton.setTitle("Go", for: .normal)
+        }
         
         return cell
     }
@@ -98,10 +107,10 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let label = UILabel()
         switch section {
         case 0:
-            label.text = "My Courses"
+            label.text = "Enrolled Courses"
             break
         case 1:
-            label.text = "All Available Courses"
+            label.text = "All Courses"
         default:
             break
         }
@@ -111,8 +120,14 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func moveToQueue(course: Course) {
         let requestURL = WebService.shared.GET_QUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
-        WebService.shared.sednGetQueueRequest(url: requestURL, type: "GET") { (result, done) in
-            print(result)
+        WebService.shared.sendGetQueueRequest(name: course.courseName!, url: requestURL, type: "GET") { (result, done) in
+            if done
+            {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let queueVC = storyboard.instantiateViewController(withIdentifier: "QueueVC")
+                self.navigationController?.pushViewController(queueVC, animated: true)
+            }
         }
     }
 

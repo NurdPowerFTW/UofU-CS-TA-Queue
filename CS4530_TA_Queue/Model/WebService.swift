@@ -29,7 +29,7 @@ class WebService{
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 
-                print(JSON(data))
+//                print(JSON(data))
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
@@ -112,7 +112,7 @@ class WebService{
             // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
-                                print(JSON(data))
+//                                print(JSON(data))
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
@@ -131,7 +131,7 @@ class WebService{
 
     }
     
-    func sednGetQueueRequest(url: String, type: String, handler:@escaping (String, Bool)->Void)
+    func sendGetQueueRequest(name: String, url: String, type: String, handler:@escaping (String, Bool)->Void)
     {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = type
@@ -150,11 +150,13 @@ class WebService{
                 else
                 {
                     DispatchQueue.main.async {
-                        WebResponseModel.shared.setupAllCourse(param: data)
+                        WebResponseModel.shared.setupCourseQueue(param:data, name:name)
                         handler("Displaying queue.", true)
                     }
                 }
             }).resume()
         }
     }
+    
+    
 }

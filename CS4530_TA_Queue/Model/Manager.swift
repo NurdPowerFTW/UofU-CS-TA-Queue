@@ -18,12 +18,14 @@ class Manager{
     var users: [String : User]?
     var userCourses: [String: Course]?
     var allCOurses: [String: Course]?
+    var selectedQueue: Queue?
     
     init()
     {
         self.users = [String : User]()
         self.userCourses = [String: Course]()
         self.allCOurses = [String: Course]()
+        self.selectedQueue = nil
     }
     
     class func shared() -> Manager {
@@ -43,5 +45,10 @@ class Manager{
     func addAllCourse(course: Course)
     {
         self.allCOurses?[course.courseID!] = course
+    }
+    
+    func addToQueue(queue: Queue)
+    {
+        self.selectedQueue = queue
     }
 }

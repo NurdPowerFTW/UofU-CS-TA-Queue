@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS4530_TA_Queue/View/CourseCell.swift"
-            timestampString = "578129750.8384711"
+            timestampString = "578191917.355442"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "83"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS4530_TA_Queue/Controller/ClassViewController.swift"
-            timestampString = "578129750.838721"
+            timestampString = "578191917.355507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "moveToQueue(course:)"
             landmarkType = "7">
          </BreakpointContent>
