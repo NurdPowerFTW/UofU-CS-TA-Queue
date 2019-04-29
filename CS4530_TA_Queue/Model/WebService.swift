@@ -131,7 +131,7 @@ class WebService{
 
     }
     
-    func sendGetQueueRequest(name: String, url: String, type: String, handler:@escaping (String, Bool)->Void)
+    func sendGetQueueRequest(courseID: String, url: String, type: String, handler:@escaping (String, Bool)->Void)
     {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = type
@@ -150,7 +150,7 @@ class WebService{
                 else
                 {
                     DispatchQueue.main.async {
-                        WebResponseModel.shared.setupCourseQueue(param:data, name:name)
+                        WebResponseModel.shared.setupCourseQueue(param:data, courseID:courseID)
                         handler("Displaying queue.", true)
                     }
                 }

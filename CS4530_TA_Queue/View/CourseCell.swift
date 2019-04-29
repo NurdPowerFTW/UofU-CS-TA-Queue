@@ -11,6 +11,7 @@ import UIKit
 protocol CourseCellDelegate {
     func moveToQueue(course: Course)
 }
+
 class CourseCell : UITableViewCell {
     var delegate : CourseCellDelegate?
     

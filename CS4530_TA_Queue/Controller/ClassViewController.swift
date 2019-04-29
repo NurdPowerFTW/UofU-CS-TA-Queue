@@ -76,7 +76,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: myCourseCellID, for: indexPath) as! CourseCell
-        let course = indexPath.section == 0 ? Array(manager.userCourses!)[indexPath.row].value : Array(manager.allCOurses!)[indexPath.row].value
+        let course = indexPath.section == 0 ? Array(manager.userCourses!)[indexPath.row].value : Array(manager.allCourses!)[indexPath.row].value
         cell.delegate = self
         cell.course = course
         if course.category == "Available"
@@ -96,7 +96,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         {
             return manager.userCourses!.count
         }
-        return manager.allCOurses!.count
+        return manager.allCourses!.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,7 +120,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func moveToQueue(course: Course) {
         let requestURL = WebService.shared.GET_QUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
-        WebService.shared.sendGetQueueRequest(name: course.courseName!, url: requestURL, type: "GET") { (result, done) in
+        WebService.shared.sendGetQueueRequest(courseID: course.courseID!, url: requestURL, type: "GET") { (result, done) in
             if done
             {
                 

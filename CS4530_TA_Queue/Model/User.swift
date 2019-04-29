@@ -16,7 +16,6 @@ class User{
     var authenticated: Bool = false
     var isAdmin: Bool = false
     var isTA: Bool = false
-    var isMain: Bool = false
     
     var TACourses = [Course]()
     var StuCourses = [Course]()

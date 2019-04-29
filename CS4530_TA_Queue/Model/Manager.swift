@@ -17,14 +17,14 @@ class Manager{
     
     var users: [String : User]?
     var userCourses: [String: Course]?
-    var allCOurses: [String: Course]?
+    var allCourses: [String: Course]?
     var selectedQueue: Queue?
     
     init()
     {
         self.users = [String : User]()
         self.userCourses = [String: Course]()
-        self.allCOurses = [String: Course]()
+        self.allCourses = [String: Course]()
         self.selectedQueue = nil
     }
     
@@ -44,7 +44,7 @@ class Manager{
     
     func addAllCourse(course: Course)
     {
-        self.allCOurses?[course.courseID!] = course
+        self.allCourses?[course.courseID!] = course
     }
     
     func addToQueue(queue: Queue)

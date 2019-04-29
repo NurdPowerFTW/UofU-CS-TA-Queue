@@ -53,9 +53,9 @@ class WebResponseModel{
         }
     }
     
-    func setupCourseQueue(param: Data, name: String)
+    func setupCourseQueue(param: Data, courseID: String)
     {
         let json = JSON(param)
-        manager.addToQueue(queue: Queue(state: json["state"].stringValue, name: name))
+        manager.addToQueue(queue: Queue(json: json, courseID:courseID))
     }
 }
