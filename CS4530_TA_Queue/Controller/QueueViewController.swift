@@ -13,6 +13,7 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var manager = Manager.shared()
     var cellID = "queueCell"
     var timer: Timer?
+    var mode: String?
     
     var queueTitle: UILabel = {
         let lbl = UILabel()
@@ -44,21 +45,38 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return tableView
     }()
     
+    var enqueueBtn: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Enter Queue", for: .normal)
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(queueTitle)
         view.addSubview(stateLabel)
         view.addSubview(lengthLabel)
         view.addSubview(tableView)
+        view.addSubview(enqueueBtn)
         
         setupContext()
         setupConstraints()
+        mode =  manager.selectedQueue?.taCollection.filter{$0.username == UserDefaults.standard.string(forKey: "CurrentUser")}.first == nil ? "Student" : "TA"
+        if mode == "TA"
+        {
+            enqueueBtn.isHidden = true
+        }
+        else
+        {
+            enqueueBtn.isHidden = false
+        }
         
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(QueueCell.self, forCellReuseIdentifier: cellID)
         tableView.allowsSelection = false
         timer = Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(refreshQueue), userInfo: nil, repeats: true)
+        enqueueBtn.addTarget(self, action: #selector(sendEnter), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,6 +95,7 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func setupConstraints()
     {
+        
         queueTitle.translatesAutoresizingMaskIntoConstraints = false
         queueTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         queueTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
@@ -93,12 +112,16 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
         lengthLabel.leadingAnchor.constraint(equalTo: stateLabel.trailingAnchor, constant: 10).isActive = true
         lengthLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
+        enqueueBtn.translatesAutoresizingMaskIntoConstraints = false
+        enqueueBtn.topAnchor.constraint(equalTo: stateLabel.bottomAnchor).isActive = true
+        enqueueBtn.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width/12).isActive = true
+        enqueueBtn.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -(view.frame.height/1.5)).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        //        tableView.heightAnchor.constraint(equalToConstant: 500).isActive = true
     }
     
     func setStateText()
@@ -130,12 +153,11 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
             cell.nameLabel.text = manager.selectedQueue?.taCollection[indexPath.row].fullname
             cell.assistBtn.isHidden = true
             cell.dequeueBtn.isHidden = true
-            cell.enqueueBtn.isHidden = true
             cell.exitBtn.isHidden = true
-            
+            cell.backgroundColor = .white
             if (manager.selectedQueue?.taCollection[indexPath.row].helping!.count)! > 0
             {
-                manager.selectedQueue?.helpers.append((cell.nameLabel.text!, (manager.selectedQueue?.taCollection[indexPath.row].helping)!))
+                manager.selectedQueue?.helpers.append(((manager.selectedQueue?.taCollection[indexPath.row].fullname)!, (manager.selectedQueue?.taCollection[indexPath.row].helping)!))
             }
         }
         else
@@ -144,6 +166,11 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
             {
                 cell.helperLabel.text = "Requires Help"
                 cell.helperLabel.textColor = .red
+                cell.backgroundColor = .white
+                if mode == "TA"
+                {
+                    cell.assistBtn.isEnabled = true
+                }
             }
             for (ta, student): (String, String) in manager.selectedQueue!.helpers
             {
@@ -151,9 +178,38 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 {
                     cell.helperLabel.text = ta
                     cell.helperLabel.textColor = .blue
+                    cell.backgroundColor = .green
+                    if mode == "TA"
+                    {
+                        cell.assistBtn.isEnabled = false
+                    }
                 }
             }
-            cell.nameLabel.text = "Student: " + (manager.selectedQueue?.studentCollection[indexPath.row].fullname)!
+            
+            if mode == "Student"
+            {
+                cell.assistBtn.isHidden = true
+                cell.dequeueBtn.isHidden = true
+                
+                if UserDefaults.standard.string(forKey: "CurrentUser") == manager.selectedQueue?.studentCollection[indexPath.row].username
+                {
+                    cell.exitBtn.isHidden = false
+                }
+                else
+                {
+                    cell.exitBtn.isEnabled = false
+                }
+                
+                
+                
+            }
+            else
+            {
+                cell.assistBtn.isHidden = false
+                cell.dequeueBtn.isHidden = false
+                cell.exitBtn.isHidden = true
+            }
+            cell.nameLabel.text = (manager.selectedQueue?.studentCollection[indexPath.row].fullname)!
             cell.locLabel.text = "Location: " + (manager.selectedQueue?.studentCollection[indexPath.row].location)!
             cell.queLabel.text = "Question: " + (manager.selectedQueue?.studentCollection[indexPath.row].question)!
             
@@ -192,7 +248,7 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func refreshQueue()
     {
         let courseID = manager.selectedQueue?.courseID
-        WebService.shared.sendGetQueueRequest(courseID: courseID!, url: WebService.shared.GET_QUEUE_FOR_CLASS_API_ADDRESS + courseID!, type: "GET") { (result, done) in
+        WebService.shared.sendGetQueueRequest(courseID: courseID!, url: WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + courseID!, type: "GET") { (result, done) in
             if done
             {
                 self.setupContext()
@@ -202,28 +258,48 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
     }
     
-    func sendAssit() {
+    func sendAssit(studentName: String) {
         let currentUser = UserDefaults.standard.string(forKey: "CurrentUser")
-        let isTA = manager.selectedQueue?.taCollection.contains(where: { (TA) -> Bool in
-            TA.username == currentUser
-        })
-        
-        if isTA!
+        let helped = manager.selectedQueue?.studentCollection.filter{$0.fullname == studentName}.first
+        let taObj = manager.selectedQueue?.taCollection.filter{$0.username == currentUser}.first
+        if taObj != nil
         {
-            print("TA found")
+            let requestURL = WebService.shared.SEND_HELP_REMOVE_FOR_STUDNET_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student/" + (helped?.username)!+"/help"
+            WebService.shared.sendAssitStudentRequest(url: requestURL, type: "POST") { (result, done) in
+            }
         }
     }
     
-    func sendDeque() {
-        
+    func sendDeque(studentName: String) {
+        let currentUser = UserDefaults.standard.string(forKey: "CurrentUser")
+        let helped = manager.selectedQueue?.studentCollection.filter{$0.fullname == studentName}.first
+        let taObj = manager.selectedQueue?.taCollection.filter{$0.username == currentUser}.first
+        if taObj != nil
+        {
+            let requestURL = WebService.shared.SEND_HELP_REMOVE_FOR_STUDNET_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student/" + (helped?.username)!
+            WebService.shared.sendDequeueStudentRequest(url: requestURL, type: "DELETE") { (result, done) in
+            }
+        }
     }
     
-    func sendEnter() {
-        
+    @objc func sendEnter() {
+        let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student"
+        WebService.shared.sendEnqueueRequest(question: "test", location: "test", url: requestURL, type: "POST") { (result, done) in
+            if done
+            {
+                self.enqueueBtn.isEnabled = false
+            }
+        }
     }
     
     func sendExit() {
-        
+        let requestURL = WebService.shared.SEND_HELP_REMOVE_FOR_STUDNET_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student/" + UserDefaults.standard.string(forKey: "CurrentUser")!
+        WebService.shared.sendDequeueStudentRequest(url: requestURL, type: "DELETE") { (result, done) in
+            if done
+            {
+                self.enqueueBtn.isEnabled = true
+            }
+        }
     }
 }
 

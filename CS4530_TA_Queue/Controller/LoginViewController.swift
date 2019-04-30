@@ -32,10 +32,9 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     @IBAction func login(_ sender: Any) {
-//        if uNameField.text?.count != 0 && passField.text?.count != 0
-//        {
-            //TODO: fix the hard coded usname/password
-            loginService.sendLoginRequest(username: "u1169036", password: "81018050aB@!", url: loginService.LOGIN_API_ADDRESS, type: "POST") { (result, done) in
+        if uNameField.text?.count != 0 && passField.text?.count != 0
+        {
+            loginService.sendLoginRequest(username: uNameField.text!, password: passField.text!, url: loginService.LOGIN_API_ADDRESS, type: "POST") { (result, done) in
                 if done
                 {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -49,7 +48,7 @@ class LoginViewController: UIViewController {
                 }
                 
             }
-//        }
+        }
     }
     
     private func createAlert(title: String, message: String)

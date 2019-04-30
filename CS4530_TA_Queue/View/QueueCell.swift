@@ -8,9 +8,8 @@
 
 import UIKit
 protocol QueueCellDelegate {
-    func sendAssit()
-    func sendDeque()
-    func sendEnter()
+    func sendAssit(studentName: String)
+    func sendDeque(studentName: String)
     func sendExit()
 }
 
@@ -61,12 +60,6 @@ class QueueCell: UITableViewCell {
         return btn
     }()
     
-    var enqueueBtn: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.setTitle("ENTER", for: .normal)
-        return btn
-    }()
-    
     var exitBtn: UIButton = {
         let btn = UIButton(type: .system)
         btn.setTitle("EXIT", for: .normal)
@@ -83,7 +76,6 @@ class QueueCell: UITableViewCell {
         addSubview(helperLabel)
         addSubview(assistBtn)
         addSubview(dequeueBtn)
-        addSubview(enqueueBtn)
         addSubview(exitBtn)
         
         nameLabel.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 5, paddingLeft: 5, paddingBottom: 5, paddingRight: 5, width: 100, height: 0, enableInsets: false)
@@ -93,10 +85,9 @@ class QueueCell: UITableViewCell {
         
         assistBtn.addTarget(self, action: #selector(assistTriggered), for: .touchUpInside)
         dequeueBtn.addTarget(self, action: #selector(dequeueTriggered), for: .touchUpInside)
-        enqueueBtn.addTarget(self, action: #selector(enqueueTriggered), for: .touchUpInside)
         exitBtn.addTarget(self, action: #selector(exitTriggered), for: .touchUpInside)
         
-        let stackView = UIStackView(arrangedSubviews: [assistBtn,dequeueBtn,enqueueBtn, exitBtn ])
+        let stackView = UIStackView(arrangedSubviews: [assistBtn,dequeueBtn, exitBtn ])
         stackView.distribution = .equalSpacing
         stackView.axis = .horizontal
         stackView.spacing = 5
@@ -107,17 +98,12 @@ class QueueCell: UITableViewCell {
 
     @objc func assistTriggered()
     {
-        delegate?.sendAssit()
+        delegate?.sendAssit(studentName: nameLabel.text!)
     }
 
     @objc func dequeueTriggered()
     {
-        delegate?.sendDeque()
-    }
-    
-    @objc func enqueueTriggered()
-    {
-        delegate?.sendEnter()
+        delegate?.sendDeque(studentName: nameLabel.text!)
     }
     
     @objc func exitTriggered()

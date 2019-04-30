@@ -119,7 +119,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func moveToQueue(course: Course) {
-        let requestURL = WebService.shared.GET_QUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
+        let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
         WebService.shared.sendGetQueueRequest(courseID: course.courseID!, url: requestURL, type: "GET") { (result, done) in
             if done
             {
