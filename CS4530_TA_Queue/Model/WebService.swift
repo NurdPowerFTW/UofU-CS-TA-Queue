@@ -26,7 +26,6 @@ class WebService{
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = postData
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send login request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 
@@ -56,7 +55,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 //                print(JSON(data))
@@ -83,7 +81,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 //                print(JSON(data))
@@ -110,7 +107,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 //                                print(JSON(data))
@@ -138,7 +134,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
                 //                print(JSON(data))
@@ -165,7 +160,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let _ = data, let response = response as? HTTPURLResponse else{return}
                 //                print(JSON(data))
@@ -191,7 +185,6 @@ class WebService{
         request.httpMethod = type
         request.setValue("application/json", forHTTPHeaderField: "accept")
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let _ = data, let response = response as? HTTPURLResponse else{return}
                 //                print(JSON(data))
@@ -220,10 +213,9 @@ class WebService{
         request.setValue("application/json", forHTTPHeaderField: "accept")
         request.httpBody = postData
         DispatchQueue.global(qos: .userInteractive).async {
-            // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
-                guard let data = data, let response = response as? HTTPURLResponse else{return}
-                print(JSON(data))
+                guard let _ = data, let response = response as? HTTPURLResponse else{return}
+//                print(JSON(data))
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
@@ -247,6 +239,59 @@ class WebService{
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "accept")
 //        request.httpBody = postData
+        DispatchQueue.global(qos: .userInteractive).async {
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                guard let _ = data, let response = response as? HTTPURLResponse else{return}
+//                print(JSON(data))
+                if response.statusCode != 200
+                {
+                    DispatchQueue.main.async {
+                        handler("Error:\(response.statusCode)",false)
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        handler("Change state...", true)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func sendGetUserRole(url: String, type: String,handler:@escaping (String, Bool)->Void)
+    {
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = type
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        DispatchQueue.global(qos: .userInteractive).async {
+            URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+                guard let _ = data, let response = response as? HTTPURLResponse else{return}
+//                print(JSON(data))
+                if response.statusCode != 200
+                {
+                    DispatchQueue.main.async {
+                        handler("Error:\(response.statusCode)",false)
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        handler("Get Role...", true)
+                    }
+                }
+            }).resume()
+        }
+    }
+    
+    func sendChangeQueueState(state: String, url: String, type: String, handler:@escaping (String, Bool)-> Void)
+    {
+        let postData = "state=\(state)".data(using: .utf8)
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = type
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.httpBody = postData
         DispatchQueue.global(qos: .userInteractive).async {
             // Send Fetch request
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in

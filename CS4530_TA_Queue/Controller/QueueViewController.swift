@@ -64,7 +64,14 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
         mode =  manager.selectedQueue?.taCollection.filter{$0.username == UserDefaults.standard.string(forKey: "CurrentUser")}.first == nil ? "Student" : "TA"
         if mode == "TA"
         {
-            enqueueBtn.isHidden = true
+            if manager.selectedQueue?.state == "closed" || enqueueBtn.titleLabel?.text == "Enter Queue"
+            {
+                enqueueBtn.setTitle("Open Queue", for: .normal)
+            }
+            else
+            {
+                enqueueBtn.setTitle("Close Queue", for: .normal)
+            }
         }
         else
         {
@@ -283,13 +290,41 @@ class QueueViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     @objc func sendEnter() {
-        let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student"
-        WebService.shared.sendEnqueueRequest(question: "test", location: "test", url: requestURL, type: "POST") { (result, done) in
-            if done
-            {
-                self.enqueueBtn.isEnabled = false
+        if mode == "Student"
+        {
+            let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/student"
+            WebService.shared.sendEnqueueRequest(question: "test", location: "test", url: requestURL, type: "POST") { (result, done) in
+                if done
+                {
+                    self.enqueueBtn.isEnabled = false
+                }
             }
         }
+        else
+        {
+            let requestURL = WebService.shared.SEND_HELP_REMOVE_FOR_STUDNET_API_ADDRESS + (manager.selectedQueue?.courseID)! + "/state"
+            if manager.selectedQueue?.state == "closed"
+            {
+                WebService.shared.sendChangeQueueState(state: "open", url: requestURL, type: "POST") { (result, done) in
+                    if done
+                    {
+                        self.enqueueBtn.setTitle("Close Queue", for: .normal)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+            else
+            {
+                WebService.shared.sendChangeQueueState(state: "closed", url: requestURL, type: "POST") { (result, done) in
+                    if done
+                    {
+                        self.enqueueBtn.setTitle("Open Queue", for: .normal)
+                        
+                    }
+                }
+            }
+        }
+        
     }
     
     func sendExit() {
