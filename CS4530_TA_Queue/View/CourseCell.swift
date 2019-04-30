@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CourseCellDelegate {
-    func moveToQueue(course: Course)
+    func moveToQueue(course: Course, mode: String)
 }
 
 class CourseCell : UITableViewCell {
@@ -83,7 +83,15 @@ class CourseCell : UITableViewCell {
     
     @objc func selectCourse()
     {
-        delegate?.moveToQueue(course: self.course!)
+        if selectButton.titleLabel?.text == "Enroll"
+        {
+            delegate?.moveToQueue(course: self.course!, mode: "Enroll")
+        }
+        else
+        {
+            delegate?.moveToQueue(course: self.course!, mode: "Go")
+        }
+        
     }
     
     

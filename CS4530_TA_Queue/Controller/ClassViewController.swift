@@ -15,7 +15,6 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     let fetchService = WebService()
     var myCourseCellID = "myCourse"
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,24 +23,15 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let url = WebService.shared.FECTH_USER_INO_API_ADDRESS + currentUser!.uName + "/courses"
         fetchService.sendFetchUserCoursesRequest(url: url, type: "GET") { (result, done) in
             if done {
-                print(result)
+                self.tableView.reloadData()
             }
-            else
-            {
-                print(result)
-            }
-            self.tableView.reloadData()
+            
         }
         
         fetchService.sendFetchAllCoursesRequest(url: WebService.shared.FECTH_AVAILABLE_COURSES_API_ADDRESS, type: "GET") { (result, done) in
             if done {
-                print(result)
+                self.tableView.reloadData()
             }
-            else
-            {
-                print(result)
-            }
-            self.tableView.reloadData()
         }
         
         tableView.delegate = self
@@ -118,18 +108,36 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return label
     }
     
-    func moveToQueue(course: Course) {
-        let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
-        WebService.shared.sendGetQueueRequest(courseID: course.courseID!, url: requestURL, type: "GET") { (result, done) in
-            if done
-            {
-                
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let queueVC = storyboard.instantiateViewController(withIdentifier: "QueueVC")
-                self.navigationController?.pushViewController(queueVC, animated: true)
+    func moveToQueue(course: Course, mode: String) {
+        if mode == "Go"
+        {
+            let requestURL = WebService.shared.GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS + course.courseID!
+            WebService.shared.sendGetQueueRequest(courseID: course.courseID!, url: requestURL, type: "GET") { (result, done) in
+                if done
+                {
+                    
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let queueVC = storyboard.instantiateViewController(withIdentifier: "QueueVC")
+                    self.navigationController?.pushViewController(queueVC, animated: true)
+                }
             }
         }
+        else
+        {
+            let requestURL = WebService.shared.FECTH_USER_INO_API_ADDRESS + (manager.users![UserDefaults.standard.string(forKey: "CurrentUser")!]?.uName)! + "/courses/" + course.courseID! + "/student"
+            WebService.shared.sendEnrollRequest(url: requestURL, type: "POST") { (result, done) in
+                if done
+                {
+                    let alert = UIAlertController(title: "Course added!", message: "You now can get TA help by going to the added class above.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+                    }))
+                    self.present(alert,animated: true,completion: nil)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
     }
-
+    
 }
 

@@ -44,31 +44,24 @@ class LoginViewController: UIViewController {
                 }
                 else
                 {
-                    self.createAlert(title: "Login Error", message: result)
+                    let alert = UIAlertController(title: "Login Error", message: "Please check your CADE credentials", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+                    }))
+                    self.present(alert,animated: true,completion: nil)
                 }
-                
             }
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Empty Username or Password", message: "Please enter your CADE credentials", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+            }))
+            self.present(alert,animated: true,completion: nil)
+            
         }
     }
     
-    private func createAlert(title: String, message: String)
-    {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            switch action.style{
-            case .default:
-                print("default")
-                
-            case .cancel:
-                print("cancel")
-                
-            case .destructive:
-                print("destructive")
-                
-                
-            }}))
-        self.present(alert, animated: true, completion: nil)
-    }
+    
     /*
     // MARK: - Navigation
 
