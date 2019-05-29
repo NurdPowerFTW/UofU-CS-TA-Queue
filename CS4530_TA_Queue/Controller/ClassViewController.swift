@@ -21,14 +21,14 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let manager = Manager.shared()
         let currentUser = manager.users![UserDefaults.standard.string(forKey: "CurrentUser")!]
         let url = WebService.shared.FECTH_USER_INO_API_ADDRESS + currentUser!.uName + "/courses"
-        fetchService.sendFetchUserCoursesRequest(url: url, type: "GET") { (result, done) in
+        fetchService.sendWebRequest(url: url, type: "GET", formData: "") { (result, done) in
             if done {
                 self.tableView.reloadData()
             }
             
         }
         
-        fetchService.sendFetchAllCoursesRequest(url: WebService.shared.FECTH_AVAILABLE_COURSES_API_ADDRESS, type: "GET") { (result, done) in
+        fetchService.sendWebRequest(url: WebService.shared.FECTH_AVAILABLE_COURSES_API_ADDRESS, type: "GET", formData: "") { (result, done) in
             if done {
                 self.tableView.reloadData()
             }
@@ -51,8 +51,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     @objc func logout()
     {
-        print("logging out")
-        WebService.shared.sendLogoutRequest(url: WebService.shared.LOGOUT_API_ADDRESS, type: "POST") { (result, done) in
+        WebService.shared.sendWebRequest(url: WebService.shared.LOGOUT_API_ADDRESS, type: "POST", formData: "") { (result, done) in
             if done {
                 print(result)
                 self.navigationController?.popViewController(animated: true)
@@ -131,7 +130,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     let alert = UIAlertController(title: "Course added!", message: "You now can get TA help by going to the added class above.", preferredStyle: UIAlertController.Style.alert)
                     alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
                     }))
-                    self.present(alert,animated: true,completion: nil)
+//                    self.present(alert,animated: true,completion: nil)
                     self.tableView.reloadData()
                 }
             }

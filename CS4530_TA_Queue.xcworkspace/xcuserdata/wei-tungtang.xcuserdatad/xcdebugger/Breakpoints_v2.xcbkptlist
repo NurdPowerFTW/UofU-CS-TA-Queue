@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS4530_TA_Queue/Controller/QueueViewController.swift"
-            timestampString = "578289147.833497"
+            timestampString = "578290185.658301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "268"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CS4530_TA_Queue/View/QueueCell.swift"
-            timestampString = "578289147.833892"
+            timestampString = "578290185.658396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "99"
@@ -41,14 +41,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CS4530_TA_Queue/Model/WebService.swift"
-            timestampString = "578289147.833944"
+            filePath = "CS4530_TA_Queue/Controller/ClassViewController.swift"
+            timestampString = "579822306.042075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "sendGetUserRole(url:type:handler:)"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "moveToQueue(course:mode:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CS4530_TA_Queue/Controller/ClassViewController.swift"
+            timestampString = "579822306.0425071"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "moveToQueue(course:mode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CS4530_TA_Queue.ClassViewController.moveToQueue(course: CS4530_TA_Queue.Course, mode: Swift.String) -&gt; ()"
+                  moduleName = "CS4530_TA_Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wei-tungtang/Desktop/CS4530_TA_Queue/CS4530_TA_Queue/Controller/ClassViewController.swift"
+                  timestampString = "579822306.098869"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "1220">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CS4530_TA_Queue.ClassViewController.moveToQueue(course: CS4530_TA_Queue.Course, mode: Swift.String) -&gt; ()"
+                  moduleName = "CS4530_TA_Queue"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wei-tungtang/Desktop/CS4530_TA_Queue/CS4530_TA_Queue/Controller/ClassViewController.swift"
+                  timestampString = "579822306.101559"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "126"
+                  endingLineNumber = "126"
+                  offsetFromSymbolStart = "3202">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

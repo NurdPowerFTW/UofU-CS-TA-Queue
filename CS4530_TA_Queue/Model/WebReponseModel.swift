@@ -17,6 +17,8 @@ class WebResponseModel{
         let json = JSON(param)
         let user = User(uName: json["username"].stringValue, fName: json["first_name"].stringValue, lName: json["last_name"].stringValue, authenticated: json["authenticated"].boolValue, isAdmin: json["is_admin"].boolValue)
         manager.addUser(user: user)
+        let defaults = UserDefaults.standard
+        defaults.set(user.uName, forKey: "CurrentUser")
     }
     
     func setupUserCourse(param: Data)

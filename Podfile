@@ -6,7 +6,6 @@ target 'CS4530_TA_Queue' do
   use_frameworks!
 
   # Pods for CS4530_TA_Queue
-  pod 'Alamofire'
   pod 'SwiftyJSON'
 
 end

@@ -16,14 +16,6 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        let currentUser = UserDefaults.standard.string(forKey: "CurrentUser")
-//        if currentUser != nil
-//        {
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let classVC = storyboard.instantiateViewController(withIdentifier: "ClassVC")
-//            self.navigationController?.pushViewController(classVC, animated: true)
-//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -32,9 +24,11 @@ class LoginViewController: UIViewController {
         passField.placeholder = "password:"
     }
     @IBAction func login(_ sender: Any) {
-        if uNameField.text?.count != 0 && passField.text?.count != 0
-        {
-            loginService.sendLoginRequest(username: uNameField.text!, password: passField.text!, url: loginService.LOGIN_API_ADDRESS, type: "POST") { (result, done) in
+//        if uNameField.text?.count != 0 && passField.text?.count != 0
+//        {
+//            let params = "username=\(uNameField.text!)&password=\(passField.text!)"
+            let params = "username=u1169036&password=81018050aB%40!"
+            loginService.sendWebRequest(url: loginService.LOGIN_API_ADDRESS, type: "POST", formData: params) { (result, done) in
                 if done
                 {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,15 +44,15 @@ class LoginViewController: UIViewController {
                     self.present(alert,animated: true,completion: nil)
                 }
             }
-        }
-        else
-        {
-            let alert = UIAlertController(title: "Empty Username or Password", message: "Please enter your CADE credentials", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
-            }))
-            self.present(alert,animated: true,completion: nil)
-            
-        }
+//        }
+//        else
+//        {
+//            let alert = UIAlertController(title: "Empty Username or Password", message: "Please enter your CADE credentials", preferredStyle: UIAlertController.Style.alert)
+//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+//            }))
+//            self.present(alert,animated: true,completion: nil)
+//
+//        }
     }
     
     
