@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Siesta/Siesta.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
