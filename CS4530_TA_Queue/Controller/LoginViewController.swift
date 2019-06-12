@@ -27,8 +27,9 @@ class LoginViewController: UIViewController {
 //        if uNameField.text?.count != 0 && passField.text?.count != 0
 //        {
 //            let params = "username=\(uNameField.text!)&password=\(passField.text!)"
-            let params = "username=u1169036&password=81018050aB%40!"
-            loginService.sendWebRequest(url: loginService.LOGIN_API_ADDRESS, type: "POST", formData: params) { (result, done) in
+//            let params = "username=u1169036&password=81018050aB%40!"
+            let params = "username=testta1&&password=test1234"
+            loginService.sendWebRequest(url: loginService.LOGIN_API_ADDRESS, type: "POST", formData: params, mode: 1) { (result, done) in
                 if done
                 {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)

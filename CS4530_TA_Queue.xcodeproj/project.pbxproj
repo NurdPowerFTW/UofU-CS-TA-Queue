@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		777F29E22276274900CD1850 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29E12276274900CD1850 /* QueueViewController.swift */; };
 		777F29E622762B3100CD1850 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29E522762B3100CD1850 /* Queue.swift */; };
 		777F29EE22778A9300CD1850 /* QueueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777F29ED22778A9300CD1850 /* QueueCell.swift */; };
+		926F557F22A830CF00E17C4B /* QueueAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926F557E22A830CF00E17C4B /* QueueAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		777F29E522762B3100CD1850 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		777F29ED22778A9300CD1850 /* QueueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueCell.swift; sourceTree = "<group>"; };
 		89D623D7BEB776DE158909ED /* Pods_CS4530_TA_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CS4530_TA_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		926F557E22A830CF00E17C4B /* QueueAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueAPI.swift; sourceTree = "<group>"; };
 		D332D3ABC2D0F61A00FF4A6E /* Pods-CS4530_TA_Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CS4530_TA_Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CS4530_TA_Queue/Pods-CS4530_TA_Queue.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 			children = (
 				77351BC7226E2E8200A71DAD /* WebReponseModel.swift */,
 				77351BC5226E2A4700A71DAD /* WebService.swift */,
+				926F557E22A830CF00E17C4B /* QueueAPI.swift */,
 				7744590C2270DDD900192FAD /* Manager.swift */,
 				77351BC9226E2F4B00A71DAD /* User.swift */,
 				774459132272269600192FAD /* Course.swift */,
@@ -277,6 +280,7 @@
 				77351BC6226E2A4700A71DAD /* WebService.swift in Sources */,
 				77351BAF226E264400A71DAD /* AppDelegate.swift in Sources */,
 				777F29EE22778A9300CD1850 /* QueueCell.swift in Sources */,
+				926F557F22A830CF00E17C4B /* QueueAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

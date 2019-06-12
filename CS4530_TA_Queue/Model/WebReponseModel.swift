@@ -26,6 +26,7 @@ class WebResponseModel{
         let json = JSON(param)
         let taCouses = json["ta_courses"]
         let stuCourses = json["student_courses"]
+        
         if taCouses.dictionary != nil
         {
             for (key, value): (String, JSON) in taCouses
@@ -51,8 +52,12 @@ class WebResponseModel{
         for (key, value): (String, JSON) in json["all_courses"]
         {
             manager.addAllCourse(course: Course(category: "Available", name: key, id: value["course_id"].stringValue, description: value["description"].stringValue))
-
         }
+    }
+    
+    func removeUserCourse(courseID: String)
+    {
+        manager.removeUserCourse(courseID: courseID)
     }
     
     func setupCourseQueue(param: Data, courseID: String)

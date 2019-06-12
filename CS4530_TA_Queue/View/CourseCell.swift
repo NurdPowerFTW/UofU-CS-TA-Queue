@@ -54,7 +54,7 @@ class CourseCell : UITableViewCell {
     
     var selectButton: UIButton = {
         let btn = UIButton(type: .system)
-        btn.setTitle("GO/Enroll", for: .normal)
+//        btn.setTitle("GO/Enroll", for: .normal)
         return btn
        
     }()
@@ -87,9 +87,13 @@ class CourseCell : UITableViewCell {
         {
             delegate?.moveToQueue(course: self.course!, mode: "Enroll")
         }
-        else
+        else if selectButton.titleLabel?.text == "GO"
         {
             delegate?.moveToQueue(course: self.course!, mode: "Go")
+        }
+        else if selectButton.titleLabel?.text == "Leave"
+        {
+            delegate?.moveToQueue(course: self.course!, mode: "Leave")
         }
         
     }

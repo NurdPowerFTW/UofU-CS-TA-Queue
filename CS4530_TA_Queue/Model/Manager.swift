@@ -28,6 +28,13 @@ class Manager{
         self.selectedQueue = nil
     }
     
+    func despose()
+    {
+        self.userCourses?.removeAll()
+        self.allCourses?.removeAll()
+        self.selectedQueue = nil
+    }
+    
     class func shared() -> Manager {
         return sharedManager
     }
@@ -41,10 +48,25 @@ class Manager{
     {
         self.userCourses?[course.courseID!] = course
     }
+    func removeUserCourse(courseID: String)
+    {
+        self.userCourses?.removeValue(forKey: courseID)
+    }
     
     func addAllCourse(course: Course)
     {
-        self.allCourses?[course.courseID!] = course
+        // don't add the exisiting user courses to the available courses to reflect the
+        // correct course category
+        if (userCourses?.contains(where: { ($0.1.courseID == course.courseID)}))!
+        {
+            let entry = userCourses?.first(where: {$0.1.courseID == course.courseID})
+            self.allCourses?[entry!.key] = entry?.value
+        }
+        else
+        {
+            self.allCourses?[course.courseID!] = course
+        }
+        
     }
     
     func addToQueue(queue: Queue)
