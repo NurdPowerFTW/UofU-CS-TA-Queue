@@ -21,6 +21,7 @@ class WebService{
     let AVAILABLE_COURSES_ENDPOINT = 4
     let ENROLL_USER_ENDPOINT = 5
     let UNENROLL_USER_ENDPOINT = 6
+    let GET_QUEUE_ENDPOINT = 7
     let GET_QUEUE_ENQUEUE_FOR_CLASS_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/queue/"
     let SEND_HELP_REMOVE_FOR_STUDNET_API_ADDRESS = "https://ta-queue.eng.utah.edu/api/queue/"
     
@@ -39,6 +40,7 @@ class WebService{
         DispatchQueue.global(qos: .userInteractive).async {
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
+                print(response.statusCode)
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
@@ -76,6 +78,11 @@ class WebService{
                         case self.UNENROLL_USER_ENDPOINT:
                             WebResponseModel.shared.removeUserCourse(courseID: formData)
                             handler("Displaying Courses.", true)
+                            break
+                        case self.GET_QUEUE_ENDPOINT:
+                            print("Displaying queue:")
+                            WebResponseModel.shared.setupCourseQueue(param:data, courseID:formData)
+                            handler("Displaying queue.", true)
                             break
                         default:
                             break
