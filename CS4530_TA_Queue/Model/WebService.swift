@@ -39,7 +39,6 @@ class WebService{
         DispatchQueue.global(qos: .userInteractive).async {
             URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
                 guard let data = data, let response = response as? HTTPURLResponse else{return}
-                print(response.statusCode)
                 if response.statusCode != 200
                 {
                     DispatchQueue.main.async {
