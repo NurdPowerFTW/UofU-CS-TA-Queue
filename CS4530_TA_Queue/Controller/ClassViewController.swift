@@ -7,19 +7,13 @@
 //
 
 import UIKit
-import Siesta
 
-class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CourseCellDelegate, ResourceObserver {
-    func resourceChanged(_ resource: Resource, event: ResourceEvent) {
-        print(resource.text)
-    }
-    
-    
+class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CourseCellDelegate {
+   
     @IBOutlet weak var tableView: UITableView!
     let manager = Manager.shared()
     let fetchService = WebService()
     var myCourseCellID = "myCourse"
-    let API = QueueAPI()
     var enrollCourses = [(key: String, value: Course)]()
     var avaiCourses = [(key: String, value: Course)]()
     

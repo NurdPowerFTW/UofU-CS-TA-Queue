@@ -7,6 +7,5 @@ target 'CS4530_TA_Queue' do
 
   # Pods for CS4530_TA_Queue
   pod 'SwiftyJSON'
-  pod 'Siesta'
   
 end
