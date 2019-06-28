@@ -64,6 +64,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         loadingLabel.isHidden = true
         tableView.isUserInteractionEnabled = true
         tableView.backgroundColor = .white
+        loadingView.backgroundColor = .clear
     }
     
     // Set the activity indicator into the main view
@@ -77,6 +78,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let x = (tableView.frame.width / 2) - (width / 2)
         let y = (tableView.frame.height / 2) - (height / 2) - (navigationController?.navigationBar.frame.height)!
         loadingView.frame = CGRect(x: x, y: y, width: width, height: height)
+        loadingView.backgroundColor = .darkGray
         
         // Sets loading text
         loadingLabel.textColor = .red
@@ -92,7 +94,6 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
         loadingView.addSubview(spinner)
         loadingView.addSubview(loadingLabel)
         tableView.addSubview(loadingView)
-        tableView.backgroundView?.backgroundColor = .darkGray
         tableView.isUserInteractionEnabled = false
         
     }
@@ -182,6 +183,7 @@ class ClassViewController: UIViewController, UITableViewDelegate, UITableViewDat
             break
         }
         label.backgroundColor = UIColor.red
+        label.textAlignment = .center
         return label
     }
     
